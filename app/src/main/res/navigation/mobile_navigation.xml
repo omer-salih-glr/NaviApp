@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.omerglr.naviapp.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_mesaj"
+        android:name="com.omerglr.naviapp.ui.mesaj.MesageFragment"
+        android:label="@string/mesaj"
+        tools:layout="@layout/fragment_mesage" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.omerglr.naviapp.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_begeni"
+        android:name="com.omerglr.naviapp.ui.mesaj.BegeniFragment"
+        android:label="Begeni"
+        tools:layout="@layout/fragment_begeni" />
+
+    <fragment
+        android:id="@+id/navigation_ziyaret"
+        android:name="com.omerglr.naviapp.ui.mesaj.ZiyaretFragment"
+        android:label="Ziyaret"
+        tools:layout="@layout/fragment_ziyaret" />
+
+    <fragment
+        android:id="@+id/navigation_welcome"
+        android:name="com.omerglr.naviapp.ui.mesaj.WelcomeFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_welcome" />
+
+    <fragment
+        android:id="@+id/navigation_register"
+        android:name="com.omerglr.naviapp.ui.mesaj.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/navigation_profilim"
+        android:name="com.omerglr.naviapp.ui.mesaj.ProfilimFragment"
+        android:label="Profilim"
+        tools:layout="@layout/fragment_profilim" />
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="com.omerglr.naviapp.ui.mesaj.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/navigation_sifremihatirlat"
+        android:name="com.omerglr.naviapp.ui.mesaj.SifremihatirlatFragment"
+        android:label="SifremiHatirlat"
+        tools:layout="@layout/fragment_sifremihatirlat" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.omerglr.naviapp.ui.splash.SplashFragment"
+        android:label="splash_fragment"
+        tools:layout="@layout/splash_fragment" />
+
+</navigation>

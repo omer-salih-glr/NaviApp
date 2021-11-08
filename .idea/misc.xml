@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/begenendesigin.xml" value="0.11666666666666667" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/cevre_img.xml" value="0.11666666666666667" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/cevrimic_user.xml" value="0.22" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/desigin_foto.xml" value="0.28" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_begeni.xml" value="0.22" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_bilgilerim.xml" value="0.22" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.11315789473684211" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_fotograf.xml" value="0.12037037037037036" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_fotograflarim.xml" value="0.25" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_home.xml" value="0.11666666666666667" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_login.xml" value="0.22" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_mesage.xml" value="0.14736842105263157" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_notifications.xml" value="0.13533834586466165" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_profilim.xml" value="0.25" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_register.xml" value="0.25" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_sifremihatirlat.xml" value="0.1656441717791411" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_welcome.xml" value="0.25" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_ziyaret.xml" value="0.11666666666666667" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragmet_sifremihatirlat.xml" value="0.19739583333333333" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/kesfet_sehirlayout.xml" value="0.11666666666666667" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/layout_bilgilerim.xml" value="0.11666666666666667" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/layout_profilim.xml" value="0.11666666666666667" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/splash_fragment.xml" value="0.75" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/topbar_begenen.xml" value="0.20416666666666666" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/topbar_kesfet.xml" value="0.13636363636363635" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/topbar_login.xml" value="0.3175925925925926" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/topbar_lovelica.xml" value="0.20416666666666666" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/topbar_mesage.xml" value="0.30833333333333335" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/topbar_profilim.xml" value="0.2222222222222222" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/topbar_register.xml" value="0.3175925925925926" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/topbar_sifremihatirlat.xml" value="0.19739583333333333" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/topbar_ziyaret.xml" value="0.13636363636363635" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

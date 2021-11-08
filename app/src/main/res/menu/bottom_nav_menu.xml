@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/cevre"
+        android:title="@string/cevre" />
+
+    <item
+        android:id="@+id/navigation_mesaj"
+        android:icon="@drawable/mesaj"
+        android:title="@string/mesaj" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/kesfet"
+        android:title="@string/kesfet" />
+
+    <item
+        android:id="@+id/navigation_begeni"
+        android:icon="@drawable/begeni"
+        android:title="@string/begeni" />
+
+    <item
+        android:id="@+id/navigation_ziyaret"
+        android:icon="@drawable/ziyaret"
+        android:title="@string/ziyaret" />
+
+
+</menu>

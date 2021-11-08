@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">NaviApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="begeni">Begeni</string>
+    <string name="ziyaret">Ziyaret</string>
+    <string name="cevre">Cevre</string>
+    <string name="mesaj">Mesaj</string>
+    <string name="kesfet">Keşfet</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

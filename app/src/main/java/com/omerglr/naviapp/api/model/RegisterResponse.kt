@@ -1,0 +1,18 @@
+package com.omerglr.naviapp.api.model
+
+import com.google.gson.annotations.SerializedName
+import com.google.gson.annotations.Expose
+
+class RegisterResponse {
+    @SerializedName("status")
+    @Expose
+    var status: Boolean? = null
+
+    @SerializedName("data")
+    @Expose
+    var data: Data? = null
+
+    @SerializedName("message")
+    @Expose
+    var message: String? = null
+}
