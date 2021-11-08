@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.net.Network
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -14,24 +13,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.omerglr.lovelica.api.ServiceBuilder
 import com.omerglr.naviapp.R
+import com.omerglr.naviapp.utils.ImageResizer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
-import retrofit2.Retrofit
+import java.io.ByteArrayOutputStream
 import java.io.File
-import retrofit2.converter.gson.GsonConverterFactory
-
-
-
+import java.io.FileOutputStream
 
 
 class FotograflarimFragment : Fragment() {
@@ -39,10 +35,12 @@ class FotograflarimFragment : Fragment() {
     lateinit var tempFile: File;
     lateinit var mPath: String;
     lateinit var disposable: Disposable;
+    var disposeDisposable = false;
 
     override fun onDestroy() {
         super.onDestroy()
-        disposable.dispose()
+        // Disposable Eğer null değilse!..
+        if (::disposable.isInitialized) disposable.dispose()
     }
 
 
@@ -60,8 +58,6 @@ class FotograflarimFragment : Fragment() {
         }
         return filePath
     }
-
-
 
 
     private lateinit var memoryCache: LruCache<String, Bitmap>
@@ -86,14 +82,36 @@ class FotograflarimFragment : Fragment() {
                             // satırlarının olduğu yerde o file'ı kullanacaksın.
                             // böylece sunucu response olarak bize, dosya boyutu 2 mb'tan kuüçük olmalıdır hatası
                             // vermeyecek.
-                            val file: File = File(selectedImagePath)
+                            //val file: File = File(selectedImagePath)
+
+                            // Sıkıştırılacak dosyanın Yolu
+                            val compressedPicture =
+                                File(requireActivity().cacheDir.path + "/compressed_pic.jpeg");
+                            // Hata almamak için eğer dosya yoksa oluşturdum.
+                            compressedPicture.createNewFile();
+
+                            //Fotoğrafı 640x480 boyutuna kadar düşürerek, sunucuya göndeiyoruz.
+                            val compressedBitmap = ImageResizer.reduceBitmapSize(bitmap, 307200);
+                            //Sıkıştırılmış fotoyu byte array'a çevirdik.
+                            val byteArrayOutputStream = ByteArrayOutputStream();
+                            compressedBitmap.compress(
+                                Bitmap.CompressFormat.JPEG,
+                                100,
+                                byteArrayOutputStream
+                            );
+                            //Sıkış. bitmap'i yazdırdık.
+                            val fileOutputStream = FileOutputStream(compressedPicture);
+                            fileOutputStream.write(byteArrayOutputStream.toByteArray())
+                            fileOutputStream.close();
+                            //FileOutputStream ile işin bitince kapamayı unutma.
 
 
                             val imagePart = MultipartBody.Part.createFormData(
                                 name = "image",
-                                filename = file.name,
-                                body = file.asRequestBody("image/*".toMediaType())
+                                filename = compressedPicture.name,
+                                body = compressedPicture.asRequestBody("image/*".toMediaType())
                             )
+                            disposeDisposable = true;
 
                             disposable = ServiceBuilder.buildService(requireActivity())
                                 .sendUploadPhotoRequest(imagePart)

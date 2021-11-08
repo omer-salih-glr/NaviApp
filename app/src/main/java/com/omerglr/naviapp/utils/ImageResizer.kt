@@ -1,8 +1,7 @@
-package com.omerglr.naviapp.ui.profilim
+package com.omerglr.naviapp.utils
 
 import android.graphics.Bitmap
 import android.util.Log
-
 
 object ImageResizer {
     //For Image Size 640*480, use MAX_SIZE =  307200 as 640*480 307200

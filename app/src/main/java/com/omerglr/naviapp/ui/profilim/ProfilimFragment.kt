@@ -37,6 +37,7 @@ class ProfilimFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        println("ProfilimScreen. Drawing Screen.")
         profilimViewModel =
             ViewModelProvider(this).get(ProfilimViewModel::class.java)
 
@@ -46,7 +47,7 @@ class ProfilimFragment : Fragment() {
 
 
         val viewPager :ViewPager = root.findViewById(com.omerglr.naviapp.R.id.viewPager)
-        viewPager.adapter = PageAdapter(requireActivity().supportFragmentManager)
+        viewPager.adapter = PageAdapter(this.childFragmentManager)
 
         val tabLayout :TabLayout = root.findViewById(com.omerglr.naviapp.R.id.tableLl)
         tabLayout.setupWithViewPager(viewPager)
