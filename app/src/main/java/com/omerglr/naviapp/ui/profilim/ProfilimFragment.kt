@@ -1,26 +1,18 @@
 package com.omerglr.naviapp.ui.mesaj
 
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import com.omerglr.lovelica.api.ServiceBuilder
 import com.omerglr.naviapp.api.requests.LoginRequest
 import com.omerglr.naviapp.databinding.FragmentProfilimBinding
 import com.omerglr.naviapp.ui.profilim.PageAdapter
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_profilim.*
 
@@ -119,6 +111,8 @@ class ProfilimFragment : Fragment() {
 
         return root
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

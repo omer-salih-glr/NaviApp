@@ -1,38 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.recyclerview.widget.RecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".ui.profilim.FotograflarimFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/imageRecylerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    tools:context=".ui.profilim.FotograflarimFragment"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_marginHorizontal="24dp"
+    android:paddingHorizontal="24dp"
+    android:clipToPadding="false"
+    android:overScrollMode="never"
+    android:padding="5dp"
+    android:scrollbars="none"
+    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:spanCount="3"
+    tools:listitem="@layout/desigin_foto">
 
 
-    <Button
-        android:id="@+id/sendPicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send Picture!"/>
-
-
-
-
-    <!--<androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/imageRecylerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:clipToPadding="false"
-        android:overScrollMode="never"
-        android:padding="5dp"
-        android:scrollbars="none"
-        tools:listitem="@layout/desigin_foto"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:spanCount="3" />-->
-
-
-
-</LinearLayout>
-
+</androidx.recyclerview.widget.RecyclerView>

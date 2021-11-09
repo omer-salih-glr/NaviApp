@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.graphics.Color.parseColor
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -12,10 +14,11 @@ import android.util.LruCache
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.omerglr.lovelica.api.ServiceBuilder
 import com.omerglr.naviapp.R
 import com.omerglr.naviapp.utils.ImageResizer
@@ -28,16 +31,27 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
+import androidx.recyclerview.widget.GridLayoutManager
+
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.omerglr.naviapp.api.model.upload.UploadData
 
 
 class FotograflarimFragment : Fragment() {
+
+
 
     lateinit var tempFile: File;
     lateinit var mPath: String;
     lateinit var disposable: Disposable;
     var disposeDisposable = false;
+    var imagesuploadList = UploadData<List<String>>()
 
-    override fun onDestroy() {
+
+
+
+
+        override fun onDestroy() {
         super.onDestroy()
         // Disposable Eğer null değilse!..
         if (::disposable.isInitialized) disposable.dispose()
@@ -60,7 +74,9 @@ class FotograflarimFragment : Fragment() {
     }
 
 
-    private lateinit var memoryCache: LruCache<String, Bitmap>
+
+
+        private lateinit var memoryCache: LruCache<String, Bitmap>
     private var resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
 
@@ -111,7 +127,9 @@ class FotograflarimFragment : Fragment() {
                                 filename = compressedPicture.name,
                                 body = compressedPicture.asRequestBody("image/*".toMediaType())
                             )
-                            disposeDisposable = true;
+
+
+                                disposeDisposable = true;
 
                             disposable = ServiceBuilder.buildService(requireActivity())
                                 .sendUploadPhotoRequest(imagePart)
@@ -119,6 +137,7 @@ class FotograflarimFragment : Fragment() {
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe(
                                     { t ->
+
                                         println("hey2")
                                         run {
                                             println(" RESPONSE -> " + t)
@@ -148,22 +167,16 @@ class FotograflarimFragment : Fragment() {
         }
 
 
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
 
-        val maxMemory = (Runtime.getRuntime().maxMemory() / 1024).toInt()
-        val cacheSize = maxMemory / 8
-        memoryCache = object : LruCache<String, Bitmap>(cacheSize) {
 
-            override fun sizeOf(key: String, bitmap: Bitmap): Int {
-                // The cache size will be measured in kilobytes rather than
-                // number of items.
-                return bitmap.byteCount / 1024
-            }
-        }
 
 
         tempFile = File.createTempFile("camera", ".jpeg", requireActivity().externalCacheDir);
@@ -171,15 +184,40 @@ class FotograflarimFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_fotograflarim, container, false);
 
 
-        val button = rootView.findViewById<Button>(R.id.sendPicture);
+        /*val button = rootView.findViewById<ImageView>(R.id.sendPicture);
         button.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             if (intent.resolveActivity(requireActivity().packageManager) != null) {
                 resultLauncher.launch(intent)
+
+
                 // içine  gelmesi gerek ,REQUEST_CODE_IMAGE
                 //startActivityForResult(intent,REQUEST_CODE_IMAGE)
             }
-        }
+        }*/
+
+        val fotograf_recyclerview = rootView.findViewById<RecyclerView>(R.id.imageRecylerView)
+        fotograf_recyclerview.setHasFixedSize(true);
+        val linearLayoutManager: LinearLayoutManager = GridLayoutManager(context, 3)
+        fotograf_recyclerview.layoutManager = linearLayoutManager;
+        val arrayList = ArrayList<Int>();
+        arrayList.add(parseColor("#111111"))
+        arrayList.add(parseColor("#222222"))
+        arrayList.add(parseColor("#333333"))
+        arrayList.add(parseColor("#444444"))
+        arrayList.add(parseColor("#555555"))
+        arrayList.add(parseColor("#666666"))
+        arrayList.add(parseColor("#777777"))
+        arrayList.add(parseColor("#888888"))
+        arrayList.add(parseColor("#999999"))
+        val adapter = FotograflarimAdapter(arrayList.toList());
+        fotograf_recyclerview.adapter = adapter;
+
+
+
+
+
+
 
 
         return rootView;

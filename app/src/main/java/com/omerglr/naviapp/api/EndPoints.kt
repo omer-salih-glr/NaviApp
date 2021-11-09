@@ -2,6 +2,7 @@ package com.omerglr.lovelica.api
 
 
 import com.omerglr.naviapp.api.model.*
+import com.omerglr.naviapp.api.model.get_user_info.GetUserInfoResponse
 import com.omerglr.naviapp.api.requests.*
 import io.reactivex.Observable
 import okhttp3.MultipartBody
@@ -32,6 +33,10 @@ interface EndPoints {
     @Headers("Accept:application/json")
     fun sendUploadPhotoRequest(
         @Part image:MultipartBody.Part):Observable<UploadPhotoResponse>
+
+    @POST("user")
+    @Headers("Accept:application/json")
+    fun getUserInformation(@Body request: UserInformationRequest):Observable<GetUserInfoResponse>
 
 
 

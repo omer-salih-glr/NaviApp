@@ -4,10 +4,10 @@ import android.media.Image
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Data {
+class UploadData<T> {
 
 
     @SerializedName("images")
     @Expose
-    var images: List<String>? = null
+    var imagesuploadList: List<String>? = null
 }

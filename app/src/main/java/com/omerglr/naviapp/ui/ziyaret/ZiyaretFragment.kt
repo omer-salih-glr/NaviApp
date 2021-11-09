@@ -13,6 +13,9 @@ import com.omerglr.naviapp.databinding.FragmentZiyaretBinding
 
 class ZiyaretFragment : Fragment() {
 
+
+
+
     private lateinit var ziyaretViewModel: ZiyaretViewModel
     private var _binding: FragmentZiyaretBinding? = null
 
@@ -34,6 +37,7 @@ class ZiyaretFragment : Fragment() {
         image.setOnClickListener {
             findNavController().navigate(R.id.navigation_profilim)
         }
+
 
         return root
     }

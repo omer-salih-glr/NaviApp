@@ -8,8 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.google.gson.Gson
+import com.omerglr.lovelica.api.ServiceBuilder
 import com.omerglr.naviapp.R
+import com.omerglr.naviapp.api.model.User
+import com.omerglr.naviapp.api.requests.UserInformationRequest
+import com.omerglr.naviapp.db.UserInformationDB
 import com.omerglr.naviapp.utils.AccessTokenUtils
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlin.math.log
 
 class SplashFragment : Fragment() {
@@ -20,6 +27,20 @@ class SplashFragment : Fragment() {
     ): View? {
         //Kullanıcının giriş yapıp yapmadığını kontrol et.
         val token = AccessTokenUtils.getAccessToken(requireActivity());
+        val service =
+            ServiceBuilder
+                .buildService(requireActivity())
+                .getUserInformation(UserInformationRequest())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe { t ->
+                    run {
+                        UserInformationDB.setUserInformation(requireActivity(),t);
+                    }
+                };
+
+        println("Veri tabanından okunan data burda -> " + Gson().toJson(UserInformationDB.getUserInformation(requireActivity())))
+
 
         val timer = object: CountDownTimer(1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
