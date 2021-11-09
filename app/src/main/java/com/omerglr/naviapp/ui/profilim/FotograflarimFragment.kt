@@ -1,10 +1,10 @@
 package com.omerglr.naviapp.ui.profilim
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.Color
 import android.graphics.Color.parseColor
 import android.net.Uri
 import android.os.Bundle
@@ -34,7 +34,9 @@ import java.io.FileOutputStream
 import androidx.recyclerview.widget.GridLayoutManager
 
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.omerglr.naviapp.api.model.upload.UploadData
+import com.omerglr.naviapp.db.UserInformationDB
 
 
 class FotograflarimFragment : Fragment() {
@@ -170,6 +172,7 @@ class FotograflarimFragment : Fragment() {
 
 
 
+    @SuppressLint("CutPasteId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -184,7 +187,7 @@ class FotograflarimFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_fotograflarim, container, false);
 
 
-        /*val button = rootView.findViewById<ImageView>(R.id.sendPicture);
+        /*val button = rootView.findViewById<ImageView>(R.id.imageRecylerView);
         button.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             if (intent.resolveActivity(requireActivity().packageManager) != null) {
@@ -200,17 +203,20 @@ class FotograflarimFragment : Fragment() {
         fotograf_recyclerview.setHasFixedSize(true);
         val linearLayoutManager: LinearLayoutManager = GridLayoutManager(context, 3)
         fotograf_recyclerview.layoutManager = linearLayoutManager;
-        val arrayList = ArrayList<Int>();
-        arrayList.add(parseColor("#111111"))
-        arrayList.add(parseColor("#222222"))
-        arrayList.add(parseColor("#333333"))
-        arrayList.add(parseColor("#444444"))
-        arrayList.add(parseColor("#555555"))
-        arrayList.add(parseColor("#666666"))
-        arrayList.add(parseColor("#777777"))
-        arrayList.add(parseColor("#888888"))
-        arrayList.add(parseColor("#999999"))
-        val adapter = FotograflarimAdapter(arrayList.toList());
+        val userInfo = UserInformationDB.getUserInformation(requireActivity());
+        var images = userInfo!!.data!!.images!!;
+        val mutableList = images.toMutableList();
+        mutableList.add(0,"upload_photo");
+
+        val adapter = FotograflarimAdapter(mutableList.toList()) {imageUrl, position ->
+            run {
+                println("On Item Pressed!!!!!!!")
+                val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                if (intent.resolveActivity(requireActivity().packageManager) != null) {
+                    resultLauncher.launch(intent)
+                }
+                }
+        }
         fotograf_recyclerview.adapter = adapter;
 
 

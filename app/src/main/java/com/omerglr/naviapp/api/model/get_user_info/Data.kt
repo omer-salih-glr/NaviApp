@@ -22,7 +22,7 @@ class Data {
 
     @SerializedName("images")
     @Expose
-    var images: List<Any>? = null
+    var images: List<String>? = null
 
     @SerializedName("city_name")
     @Expose

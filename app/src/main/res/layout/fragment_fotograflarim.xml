@@ -7,8 +7,6 @@
     android:id="@+id/imageRecylerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginHorizontal="24dp"
-    android:paddingHorizontal="24dp"
     android:clipToPadding="false"
     android:overScrollMode="never"
     android:padding="5dp"
