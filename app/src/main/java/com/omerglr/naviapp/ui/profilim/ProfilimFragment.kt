@@ -8,13 +8,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import com.omerglr.naviapp.api.requests.LoginRequest
+import com.omerglr.naviapp.R
 import com.omerglr.naviapp.databinding.FragmentProfilimBinding
 import com.omerglr.naviapp.ui.profilim.PageAdapter
-import kotlinx.android.synthetic.main.fragment_login.*
-import kotlinx.android.synthetic.main.fragment_profilim.*
 
 
 class ProfilimFragment : Fragment() {
@@ -38,81 +37,19 @@ class ProfilimFragment : Fragment() {
 
 
 
-        val viewPager :ViewPager = root.findViewById(com.omerglr.naviapp.R.id.viewPager)
+        val viewPager :ViewPager = root.findViewById(R.id.viewPager)
         viewPager.adapter = PageAdapter(this.childFragmentManager)
 
-        val tabLayout :TabLayout = root.findViewById(com.omerglr.naviapp.R.id.tableLl)
+        val tabLayout :TabLayout = root.findViewById(R.id.tableLl)
         tabLayout.setupWithViewPager(viewPager)
 
-        val profildesigin: ImageView = root.findViewById(com.omerglr.naviapp.R.id.profildesigin)
-        profildesigin.setOnClickListener{
-            val name = usernameprofil.text.toString().trim()
-            val age = age_text.text.toString().trim()
-            val city = city_text.text.toString().trim()
-
-
-            if (name.isEmpty()) {
-                usernameprofil.error = "Name Required"
-                usernameprofil.requestFocus()
-                return@setOnClickListener
-
-            }
-
-
-            if (age.isEmpty()) {
-                age_text.error = "Password Required"
-                age_text.requestFocus()
-                return@setOnClickListener
-            }
-
-            if (city.isEmpty()) {
-                city_text.error = "Password Required"
-                city_text.requestFocus()
-                return@setOnClickListener
-            }
-
-            val params = LoginRequest();
-
-            //params.email = user_email;
-            //params.password = password;
-            //params.combine = "AllowForHakan";
-
-            /*loginDisposable = ServiceBuilder.buildService(requireActivity()).sendLoginRequest(params)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                    { t ->
-                        kotlin.run {
-                            println("On Next -> " + t);
-                            if (t?.status !== true) {
-                                Toast.makeText(
-                                    requireContext(),
-                                    "Bir hata meydana geldi!",
-                                    Toast.LENGTH_LONG
-                                ).show();
-                                return@run;
-                            }
-
-                            sharedLogin.edit().putString("Token",t?.data?.accessToken).apply();
-                            Toast.makeText(
-                                requireContext(),
-                                "Başarıyla giriş yapıldı!",
-                                Toast.LENGTH_LONG
-                            ).show();
-                            findNavController().navigate(com.omerglr.naviapp.R.id.navigation_home)
-                        }
-                    },
-                    { err -> println("Error -> " + err) },
-                )*/
-    }
-
-
-
+       val profil_desigin :ImageView = root.findViewById(R.id.profildesigin)
+        profil_desigin.setOnClickListener{
+            findNavController().navigate(R.id.fragmentprofilduzen)
+        }
 
         return root
     }
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()

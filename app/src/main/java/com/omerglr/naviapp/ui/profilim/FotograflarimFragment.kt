@@ -37,21 +37,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.omerglr.naviapp.api.model.upload.UploadData
 import com.omerglr.naviapp.db.UserInformationDB
+import okhttp3.internal.notify
+import okhttp3.internal.notifyAll
 
 
 class FotograflarimFragment : Fragment() {
 
-
-
     lateinit var tempFile: File;
     lateinit var mPath: String;
     lateinit var disposable: Disposable;
+    lateinit var listData: MutableList<String>;
     var disposeDisposable = false;
     var imagesuploadList = UploadData<List<String>>()
-
-
-
-
 
         override fun onDestroy() {
         super.onDestroy()
@@ -76,9 +73,6 @@ class FotograflarimFragment : Fragment() {
     }
 
 
-
-
-        private lateinit var memoryCache: LruCache<String, Bitmap>
     private var resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
 
@@ -143,6 +137,7 @@ class FotograflarimFragment : Fragment() {
                                         println("hey2")
                                         run {
                                             println(" RESPONSE -> " + t)
+                                            //listData
                                         }
                                         //hata yukarı
                                     },
@@ -168,63 +163,40 @@ class FotograflarimFragment : Fragment() {
             }
         }
 
-
-
-
-
     @SuppressLint("CutPasteId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-
-
-
         tempFile = File.createTempFile("camera", ".jpeg", requireActivity().externalCacheDir);
         mPath = tempFile.absolutePath;
         val rootView = inflater.inflate(R.layout.fragment_fotograflarim, container, false);
 
-
-        /*val button = rootView.findViewById<ImageView>(R.id.imageRecylerView);
-        button.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            if (intent.resolveActivity(requireActivity().packageManager) != null) {
-                resultLauncher.launch(intent)
-
-
-                // içine  gelmesi gerek ,REQUEST_CODE_IMAGE
-                //startActivityForResult(intent,REQUEST_CODE_IMAGE)
-            }
-        }*/
-
+        //foğraflar yükleme ve liste
         val fotograf_recyclerview = rootView.findViewById<RecyclerView>(R.id.imageRecylerView)
         fotograf_recyclerview.setHasFixedSize(true);
         val linearLayoutManager: LinearLayoutManager = GridLayoutManager(context, 3)
-        fotograf_recyclerview.layoutManager = linearLayoutManager;
+        fotograf_recyclerview.layoutManager = linearLayoutManager
         val userInfo = UserInformationDB.getUserInformation(requireActivity());
         var images = userInfo!!.data!!.images!!;
-        val mutableList = images.toMutableList();
-        mutableList.add(0,"upload_photo");
+        listData = images.toMutableList();
+        listData.add(0,"upload_photo");
 
-        val adapter = FotograflarimAdapter(mutableList.toList()) {imageUrl, position ->
+
+        val adapter = FotograflarimAdapter(listData.toList()) {imageUrl, position ->
             run {
-                println("On Item Pressed!!!!!!!")
+
                 val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
                 if (intent.resolveActivity(requireActivity().packageManager) != null) {
                     resultLauncher.launch(intent)
+
+
                 }
-                }
+            }
         }
+
         fotograf_recyclerview.adapter = adapter;
-
-
-
-
-
-
-
 
         return rootView;
     }

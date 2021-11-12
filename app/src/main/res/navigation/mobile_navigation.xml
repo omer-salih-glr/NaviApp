@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_begeni"
-        android:name="com.omerglr.naviapp.ui.mesaj.BegeniFragment"
+        android:name="com.omerglr.naviapp.ui.mesaj.ProfilDuzenFragment"
         android:label="Begeni"
         tools:layout="@layout/fragment_begeni" />
 
@@ -66,5 +66,14 @@
         android:name="com.omerglr.naviapp.ui.splash.SplashFragment"
         android:label="splash_fragment"
         tools:layout="@layout/splash_fragment" />
+
+    <fragment
+        android:id="@+id/fragmentprofilduzen"
+        android:name="com.omerglr.naviapp.ui.mesaj.ProfilDuzenFragment"
+        android:label="fragment_profilduzen"
+        tools:layout="@layout/fragment_profilduzen" />
+
+
+
 
 </navigation>

@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#ffffffff">
+
+
+    <RelativeLayout
+        app:cornerRadius="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+
+            android:id="@+id/window"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+
+            android:visibility="visible"
+            android:scaleType="center"
+
+            android:src="@drawable/alert_new_photo" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/text_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/a"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="25dp"
+                android:gravity="center"
+                android:text="Fotoğraf Yükle"
+                android:textColor="#ff000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/text_mesage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_dialog"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal"
+                android:text="Seni en iyi anlatan fotoğraflarını yükle daha çok etkileşim al!"
+                android:textColor="@color/bilgiText"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_galeri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_mesage"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="20dp"
+                android:background="#0097a7"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Galeriyi Aç"
+                android:textColor="#ffffffff"
+                tools:ignore="TextContrastCheck" />
+
+            <Button
+                android:id="@+id/btn_kamera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_galeri"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/background"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Kamerayı Aç"
+                android:textColor="#ffffffff"
+                tools:ignore="TextContrastCheck" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
