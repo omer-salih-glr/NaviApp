@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_begeni"
-        android:name="com.omerglr.naviapp.ui.mesaj.ProfilDuzenFragment"
+        android:name="com.omerglr.naviapp.ui.mesaj.BegeniFragment"
         android:label="Begeni"
         tools:layout="@layout/fragment_begeni" />
 
