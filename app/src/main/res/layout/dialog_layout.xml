@@ -1,45 +1,46 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="#ffffffff">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
-    <RelativeLayout
-        app:cornerRadius="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/view3"
+        android:layout_width="0dp"
+        android:radius="18dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
 
-        <ImageView
-
-            android:id="@+id/window"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-40dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:gravity="center"
-
-            android:visibility="visible"
-            android:scaleType="center"
-
-            android:src="@drawable/alert_new_photo" />
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:radius="18dp"
+
+            android:layout_height="match_parent"></LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:radius="18dp"
+
             android:orientation="vertical">
 
 
             <TextView
                 android:id="@+id/text_dialog"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/a"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="25dp"
                 android:gravity="center"
@@ -54,7 +55,6 @@
                 android:layout_below="@+id/text_dialog"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="center_horizontal"
@@ -62,37 +62,90 @@
                 android:textColor="@color/bilgiText"
                 android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/btn_galeri"
+            <LinearLayout
+                android:id="@+id/galeri_ac"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_mesage"
-                android:layout_centerHorizontal="true"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginBottom="20dp"
-                android:background="#0097a7"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="Galeriyi Aç"
-                android:textColor="#ffffffff"
-                tools:ignore="TextContrastCheck" />
+                android:background="@drawable/rounded_corner">
 
-            <Button
-                android:id="@+id/btn_kamera"
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/galeri" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/galeriden_se"
+                    android:textColor="@color/white"
+                    android:textSize="15dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/kamera_ac"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_galeri"
-                android:layout_centerHorizontal="true"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginBottom="20dp"
-                android:background="@color/background"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="Kamerayı Aç"
-                android:textColor="#ffffffff"
-                tools:ignore="TextContrastCheck" />
+                android:background="@drawable/kam_ac">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/kamera_ac" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/galeriden_se"
+                    android:textColor="@color/bilgiText"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
 
         </LinearLayout>
-    </RelativeLayout>
-</RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/vazge"
+            android:textSize="13dp"
+
+            />
+
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-48dp"
+        android:src="@drawable/alert_new_photo"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintStart_toStartOf="@+id/view3" />
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

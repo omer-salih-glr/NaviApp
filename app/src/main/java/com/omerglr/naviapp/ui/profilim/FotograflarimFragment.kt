@@ -191,7 +191,6 @@ class FotograflarimFragment : Fragment() {
                 if (intent.resolveActivity(requireActivity().packageManager) != null) {
                     resultLauncher.launch(intent)
 
-
                 }
             }
         }
@@ -200,21 +199,4 @@ class FotograflarimFragment : Fragment() {
 
         return rootView;
     }
-
-
 }
-
-/*
-
-ServiceBuilder
-.buildService(requireActivity())
-.sendHomeRequest(HomeRequest())
-.subscribeOn(Schedulers.io())
-.observeOn(AndroidSchedulers.mainThread())
-.subscribe(
-{
-    t -> kotlin.run {
-    println("Income ->" + t?.data?.get(0)?.birthday)
-} },
-{ err -> println("Error -> " + err) }
-)*/

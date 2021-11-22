@@ -73,6 +73,12 @@
         android:label="fragment_profilduzen"
         tools:layout="@layout/fragment_profilduzen" />
 
+    <!--<fragment
+        android:id="@+id/fragmentcustomalert"
+        android:name="com.omerglr.naviapp.ui.profilduzen.CustomAlert"
+        android:label="customalert"
+        tools:layout="@layout/dialog_layout" />-->
+
 
 
 

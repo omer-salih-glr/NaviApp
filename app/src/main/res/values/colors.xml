@@ -12,10 +12,15 @@
     <color name="checked">#ff5757</color>
     <color name="unchecked">#ffcc74</color>
     <color name="bilgiText">#4B4F5B</color>
-
+    <color name="backcolor">#F3F3F3</color>
     <color name="colorPrimary">#455cde</color>
     <color name="colorPrimaryDark">#403d3d</color>
     <color name="colorAccent">#c2bdbf</color>
     <color name="colorBlack">#000000</color>
+    <color name="color_galeri">#E24137</color>
+    <color name="coloe_vazgec">#5B5D67</color>
+
+    <color name="md_grey_500">#9E9E9E</color>
+    <color name="md_white_1000">#FFFFFF</color>
 
 </resources>

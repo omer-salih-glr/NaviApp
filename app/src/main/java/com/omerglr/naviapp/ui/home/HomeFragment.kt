@@ -37,10 +37,6 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.navigation_profilim)
         }
 
-        val cevreprofil: ImageView = root.findViewById(R.id.profil_img);
-        cevreprofil.setOnClickListener {
-            findNavController().navigate(R.id.navigation_profilim)
-        }
 
 
         return root

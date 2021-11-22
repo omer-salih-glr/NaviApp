@@ -2,118 +2,69 @@ package com.omerglr.naviapp.ui.profilduzen
 
 import android.app.Activity
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
-import android.view.View
 import android.view.Window
-import android.widget.Button
 import com.omerglr.naviapp.R
 import android.view.ViewGroup
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
+import android.widget.ImageView
+import android.widget.LinearLayout
 
-class CustomAlert{
+class CustomAlert {
 
-    val PERMISSION_CODE: Int = 12345
-    val IMAGE_CAPTURE_CODE: Int = 12346
-    var imageUri: Uri? = null
+    private val REQUEST_IMAGE_CAPTURE = 0
+    private val REQUEST_GALLERY_IMAGE = 1
+    private var filePath: String = ""
+
+    private lateinit var imgView: ImageView
+
 
     fun showDialog(activity: Activity?, msg: String?) {
 
 
-        //val dialog:Dialog = Dialog(this);
         val dialog = Dialog(activity!!)
+
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_layout)
-        dialog.window!!.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT)
+        //dialog.
+
+        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+println("çalış dialog")
+        dialog.window!!.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
 
 
-        dialog.show()
-/*
 
-        val galeriButton: Button = dialog.findViewById<View>(R.id.btn_galeri) as Button
-        galeriButton.setOnClickListener {
+        val galeriac: LinearLayout =
+            dialog.findViewById<LinearLayout>(R.id.galeri_ac) as LinearLayout
+        galeriac.setOnClickListener {
+
+
             dialog.dismiss()
+
         }
 
-        val kameraButton: Button = dialog.findViewById<View>(R.id.btn_kamera) as Button
-        kameraButton.setOnClickListener {
+        val kamera_ac: LinearLayout =
+            dialog.findViewById<LinearLayout>(R.id.kamera_ac) as LinearLayout
+        kamera_ac.setOnClickListener {
 
 
-
-
-
-
-            *//*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (checkSelfPermission(activity,android.Manifest.permission.CAMERA)
-                    == PackageManager.PERMISSION_DENIED
-                    || checkSelfPermission(
-                        activity,toString()
-                    ) == PackageManager.PERMISSION_DENIED
-                ) {
-                    val permission = arrayOf(
-                        android.Manifest.permission.CAMERA,
-                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-                        )
-
-                    requestPermissions(activity,permission, IMAGE_CAPTURE_CODE)
-                } else {
-                    openCamera(activity)
-                }
-
-            } else {
-                    //api<23
-             openCamera(activity)
-            }
         }
-        dialog.dismiss()*//*
-    }*/
-    //showDialog()
-
-
-    /*private fun openCamera(activity: Activity) {
-        val contentValues = ContentValues()
-        contentValues.put(MediaStore.Images.Media.TITLE, "imageTitle")
-        imageUri =
-            activity.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
-        startActivityForResult(activity,intent, IMAGE_CAPTURE_CODE,null)
-    }*/
-
-     /*fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-       /* when (requestCode) {
-            PERMISSION_CODE -> {
-
-                if (grantResults.size > 0 && grantResults[0]
-                    == PackageManager.PERMISSION_GRANTED
-                ) {
-                    openCamera(Activity())
-                } else {
-                   //Toast.makeText(
-                   onActivityResult(requestCode,resultCode = 1,data = null)
-                   ,
-
-                   ).show()
-                }
-
-            }
-        }
+        dialog.dismiss()
+        dialog.show()
     }
 
-     fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        //super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK) {
-            //cameraImage.setImageURI(imageUri)
-        }*/
-    }*/
+
+
+
+
+
+
+
+
 }
-}
-
-
-

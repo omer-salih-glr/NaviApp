@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:paddingBottom="55dp"
+
             android:scrollbars="horizontal"
             android:layout_height="match_parent"
             android:background="@color/background">
