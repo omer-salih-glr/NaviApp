@@ -23,7 +23,7 @@
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/cevre_img.xml" value="0.11666666666666667" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/cevrimic_user.xml" value="0.22" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/desigin_foto.xml" value="0.28" />
-        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/dialog_layout.xml" value="0.13986013986013987" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/dialog_layout.xml" value="0.1" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/foto_yukle.xml" value="0.25" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_begeni.xml" value="0.22" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_bilgilerim.xml" value="0.33" />
@@ -37,7 +37,7 @@
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_mesage.xml" value="0.12222222222222222" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_notifications.xml" value="0.13533834586466165" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_post_detail.xml" value="0.18802083333333333" />
-        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_profilduzen.xml" value="0.11203703703703703" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_profilduzen.xml" value="0.33" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_profilim.xml" value="0.2640449438202247" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_profilimi_duzenle.xml" value="0.25" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/fragment_register.xml" value="0.25" />
@@ -51,8 +51,9 @@
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/layout_profilim.xml" value="0.11666666666666667" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/mesage_desigin.xml" value="0.1875" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/splash_fragment.xml" value="0.75" />
-        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/test.xml" value="0.18067226890756302" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/test.xml" value="0.10465116279069768" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/test_1.xml" value="0.15185185185185185" />
+        <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/test_dialog.xml" value="0.1" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/topbar_begenen.xml" value="0.20416666666666666" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/topbar_kesfet.xml" value="0.13636363636363635" />
         <entry key="..\:/androidcalisma/NaviApp/app/src/main/res/layout/topbar_login.xml" value="0.3175925925925926" />

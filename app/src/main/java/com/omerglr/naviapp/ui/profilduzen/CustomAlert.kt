@@ -3,68 +3,87 @@ package com.omerglr.naviapp.ui.profilduzen
 import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
+import android.content.Intent.ACTION_PICK
 import android.graphics.Color
 import android.view.Window
 import com.omerglr.naviapp.R
 import android.view.ViewGroup
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
+import android.provider.MediaStore
+import android.util.Log
+import android.view.View
+import android.widget.Button
 import android.widget.ImageView
-import android.widget.LinearLayout
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat.startActivity
+import com.omerglr.naviapp.databinding.DialogLayoutBinding
+import androidx.fragment.app.Fragment
+
 
 class CustomAlert {
 
-    private val REQUEST_IMAGE_CAPTURE = 0
-    private val REQUEST_GALLERY_IMAGE = 1
-    private var filePath: String = ""
+    lateinit var button: Button
+    private val pickImage = 100
+    private var imageUri: Uri? = null
+    lateinit var imageView: ImageView
+    lateinit var binding: DialogLayoutBinding;
+    private val TAG = "CustomAlert"
 
-    private lateinit var imgView: ImageView
-
-
-    fun showDialog(activity: Activity?, msg: String?) {
-
-
+    fun showDialog(activity: Activity?,  msg: String?, launcher: ActivityResultLauncher<String> ) {
         val dialog = Dialog(activity!!)
+
+         binding = DialogLayoutBinding.inflate(dialog.layoutInflater);
 
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
-        dialog.setContentView(R.layout.dialog_layout)
+        dialog.setContentView(binding.root)
         //dialog.
 
+
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-println("çalış dialog")
         dialog.window!!.setLayout(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
+        imageView = activity.findViewById(R.id.profil_foto)
 
+        binding.kameraAc.setOnClickListener {
+            Log.d(TAG, "showDialog:Kamera Ac ")
 
+            val gallery = Intent(Intent.ACTION_CAMERA_BUTTON,
+                MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+            //ActivityResultCallback(gallery, pickImage)
 
-        val galeriac: LinearLayout =
-            dialog.findViewById<LinearLayout>(R.id.galeri_ac) as LinearLayout
-        galeriac.setOnClickListener {
-
-
-            dialog.dismiss()
-
-        }
-
-        val kamera_ac: LinearLayout =
-            dialog.findViewById<LinearLayout>(R.id.kamera_ac) as LinearLayout
-        kamera_ac.setOnClickListener {
-
+            gallery.type = "image/jpg"
+            gallery.putExtra(Intent.ACTION_CAMERA_BUTTON, true)
+            launcher.launch("image/*")
 
         }
-        dialog.dismiss()
+
+       binding.galeriAc.setOnClickListener {
+           Log.d(TAG, "showDialog: ")
+           //openGalleryBtn()
+
+           val gallery = Intent(Intent.ACTION_PICK,
+               MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+           //ActivityResultCallback(gallery, pickImage)
+
+           gallery.type = "image/jpg"
+           gallery.putExtra(Intent.ACTION_PICK, true)
+           launcher.launch("image/*")
+
+
+       }
         dialog.show()
+        
     }
 
 
 
 
-
-
-
-
-
 }
+
+
+
