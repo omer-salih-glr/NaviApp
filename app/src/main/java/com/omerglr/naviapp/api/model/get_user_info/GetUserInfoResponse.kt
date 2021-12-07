@@ -6,13 +6,13 @@ import com.google.gson.annotations.Expose
 class GetUserInfoResponse {
     @SerializedName("status")
     @Expose
-    var status: Boolean? = null
+    var status:Boolean = true;
 
     @SerializedName("data")
     @Expose
-    var data: Data? = null
+    lateinit var data: Data;
 
     @SerializedName("message")
     @Expose
-    var message: String? = null
+    lateinit var message: String;
 }

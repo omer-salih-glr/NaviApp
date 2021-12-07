@@ -13,7 +13,9 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.omerglr.naviapp.R
 import com.omerglr.naviapp.databinding.FragmentProfilimBinding
+import com.omerglr.naviapp.db.UserInformationDB
 import com.omerglr.naviapp.ui.profilim.PageAdapter
+import com.omerglr.naviapp.utils.toEditable
 
 
 class ProfilimFragment : Fragment() {
@@ -47,6 +49,12 @@ class ProfilimFragment : Fragment() {
         profil_desigin.setOnClickListener{
             findNavController().navigate(R.id.fragmentprofilduzen)
         }
+
+        val userInfo = UserInformationDB.getUserInformation(requireActivity())!!;
+        binding.usernameprofil.text = userInfo.data.username!!.toEditable();
+
+
+
 
         return root
     }

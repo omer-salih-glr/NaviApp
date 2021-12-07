@@ -1,6 +1,5 @@
 package com.omerglr.naviapp.ui.splash
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
@@ -11,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.google.gson.Gson
 import com.omerglr.lovelica.api.ServiceBuilder
 import com.omerglr.naviapp.R
-import com.omerglr.naviapp.api.model.User
 import com.omerglr.naviapp.api.requests.UserInformationRequest
 import com.omerglr.naviapp.db.UserInformationDB
 import com.omerglr.naviapp.utils.AccessTokenUtils

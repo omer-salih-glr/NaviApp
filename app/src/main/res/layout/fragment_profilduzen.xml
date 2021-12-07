@@ -17,12 +17,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background"
+
             android:orientation="vertical"
             android:paddingBottom="55dp"
-
-            android:scrollbars="horizontal"
-            android:layout_height="match_parent"
-            android:background="@color/background">
+            android:scrollbars="horizontal">
 
             <ImageView
                 android:id="@+id/profil_foto"
@@ -35,7 +35,6 @@
                 android:layout_marginTop="15dp"
 
                 android:src="@drawable/profil_duzen" />
-
 
 
             <LinearLayout
@@ -57,7 +56,7 @@
                     android:src="@drawable/koum" />
 
                 <EditText
-                    android:id="@+id/username"
+                    android:id="@+id/locationText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -116,7 +115,7 @@
                         android:src="@drawable/kullanici_img" />
 
                     <EditText
-                        android:id="@+id/usernaeml"
+                        android:id="@+id/usernameText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -275,6 +274,19 @@
 
             </LinearLayout>
 
+
+            <Button
+                android:id="@+id/guncelle"
+                android:layout_width="305dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="55dp"
+                android:backgroundTint="#E24137"
+                android:radius="30dp"
+                android:text="@string/g_ncelle"
+                android:layout_marginBottom="35dp"
+
+                />
 
         </LinearLayout>
     </ScrollView>

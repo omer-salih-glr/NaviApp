@@ -38,6 +38,10 @@ interface EndPoints {
     @Headers("Accept:application/json")
     fun getUserInformation(@Body request: UserInformationRequest):Observable<GetUserInfoResponse>
 
+    @POST("user/update")
+    @Headers("Accept:application/json")
+    fun updateUserInformation(@Body request: UpdateUserInfoRequest):Observable<GetUserInfoResponse>
+
 
 
 

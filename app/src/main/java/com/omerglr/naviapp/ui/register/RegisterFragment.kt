@@ -66,7 +66,7 @@ class RegisterFragment : Fragment() {
         val button_register: Button = root.findViewById(R.id.button_register)
 
         button_register.setOnClickListener {
-            val name = username.text.toString().trim()
+            val name = locationText.text.toString().trim()
             val email = email_text.text.toString().trim()
             val password = password.text.toString().trim()
             val birthday = (
@@ -79,8 +79,8 @@ class RegisterFragment : Fragment() {
                     )
 
               if (name.isEmpty()){
-                  username.error = "Name Required"
-                  username.requestFocus()
+                  locationText.error = "Name Required"
+                  locationText.requestFocus()
                   return@setOnClickListener
 
               }
